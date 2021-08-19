@@ -1,0 +1,19 @@
+.header-box{
+    background: #2d3142;
+}
+
+.main-box{
+    background: #4f5d75;
+    min-height: 700px;
+}
+
+.footer-box{
+    background: #2d3142;
+    min-height: 150px;
+}
+
+.page-navigation{    
+    position: absolute;
+    left: 2%;
+    top: 95%;
+}
