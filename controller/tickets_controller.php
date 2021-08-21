@@ -1,10 +1,9 @@
 <?php
-include dirname(__DIR__).'\model\storage.php';
+include dirname(__DIR__) . '\model\database_request.php';
 
 function GetTickets()
 {
-    $tickets = Storage::SelectTickets();
-    var_dump($tickets);
+    return Storage::SelectTickets();
 }
 
 function AddTicket($ticket)

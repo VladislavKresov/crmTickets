@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= "CRM for my buisiness"; ?></title>
 
-    <?php include 'controller/tickets.php'; ?>
+    <?php include 'controller/tickets_controller.php'; ?>
 
     <link rel="stylesheet" href="view/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -33,7 +33,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="controller/tickets.php" method="post">
+                        <form action="controller/tickets_controller.php" method="post">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">User Name</label>
                                 <input type="text" class="form-control" name="username">
