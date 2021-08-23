@@ -3,15 +3,26 @@ include dirname(__DIR__) . '\model\database_request.php';
 
 function GetTickets()
 {
-    return Storage::SelectTickets();
+    return DBRequests::SelectTickets();
 }
 
 function AddTicket($ticket)
 {
     $ticket['progress'] = '0';
-    Storage::InsertTicket($ticket);
+    DBRequests::InsertTicket($ticket);
+    header('Location: /');
 }
 
-if(array_key_exists('addticket',$_POST)){
+function SwitchTicketStatus($cb, $id)
+{
+    var_dump($cb);
+    if($cb.is(":checked"))
+    {
+        var_dump($id);
+    }
+}
+
+if(array_key_exists('addticket',$_POST))
+{
     AddTicket($_POST);
- }
+}

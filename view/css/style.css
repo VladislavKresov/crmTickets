@@ -1,5 +1,6 @@
 .header-box{
     background: #2d3142;
+    max-height: 80px;
 }
 
 .main-box{
@@ -16,4 +17,79 @@
     position: absolute;
     left: 2%;
     top: 95%;
+}
+
+.form_dark {
+    background: #4f5d75;
+    border: 2px solid #2d3142;
+    border-radius: 10px;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+}
+
+.page-navigation ul li{
+    border-radius: 10px;
+    padding: 5px 2px 5px;
+}
+
+.hat {
+    color: #fcfcfc;
+    min-height: 40px;
+    padding: 5px;
+    margin-top: 5px;
+    background: #2d3142;
+    border-radius: 5px;
+}
+
+.btn-delete {
+    border: 0;
+    padding: 5px 15px;
+    color: white;
+    font-size: 13px;
+    background: #db5757;
+    position: relative;
+    margin-left: 5px;
+    float: right;
+    border-radius: 5px;
+}
+
+.btn-delete:hover {
+    background: #a04141;
+}
+
+.btn-edit {
+    border: 0;
+    padding: 5px 15px;
+    color: white;
+    font-size: 13px;
+    background: green;
+    position: relative;
+    margin-left: 5px;
+    float: right;
+    border-radius: 5px;
+}
+
+.btn-edit:hover {
+    background: darkgreen;
+}
+
+.status-checkbox {
+    float: right;
+}
+
+ul {
+    padding: 10px 10px!important;
+}
+
+.list li {
+    list-style: none;
+    padding: 15px;
+    margin-bottom: 5px;
+    background: #fcfcfc;
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+ul li:hover {
+    background: #e5e5e5;
 }

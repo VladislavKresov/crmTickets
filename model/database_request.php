@@ -1,11 +1,11 @@
 <?php
-class Storage
+class DBRequests
 {
     private static $pdo_dsn = "mysql:host=localhost;dbname=testproject";
     private static $pdo_login = "root";
     private static $pdo_password = "";
     private static $sql_insert = "INSERT INTO tasks (username, email, content, progress) VALUES (:username, :email, :content, :progress)";
-    private static $sql_select = "SELECT * FROM tasks";
+    private static $sql_select = "SELECT * FROM tasks ORDER BY 'id' DESC";
 
     public static function InsertTicket($ticket)
     {
@@ -24,5 +24,13 @@ class Storage
         $statement = $pdo->prepare(self::$sql_select);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function DeleteTicketByID($id)
+    {
+        $pdo = new PDO(self::$pdo_dsn, self::$pdo_login, self::$pdo_password);
+        $sql = "DELETE FROM `tasks` WHERE `id` = ?";
+        $statement = $pdo->prepare($sql);
+        $statement->execute([$id]);
     }
 }

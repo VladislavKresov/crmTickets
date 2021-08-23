@@ -59,7 +59,29 @@
 
     <div class="main-box">
         <?php
-            GetTickets();
+            $tickets = GetTickets();
+            echo '<ul class="list">';
+            foreach ($tickets as $ticket)
+            {
+                echo '<div class="hat">  
+                        '.$ticket['username'].' - '.$ticket['email'].
+                        '<a href="/controller/delete.php?id='.$ticket['id'].'">
+                            <button class="btn-delete">Delete</button>
+                        </a>
+                        <a href="/controller/edit.php?id='.$ticket['id'].'">
+                            <button class="btn-edit">Edit</button>                            
+                         </a>
+                      </div>';
+                echo '<li>                                                 
+                         <b>
+                         '.$ticket['content'].'
+                         </b>
+                         <div class="status-checkbox">                  
+                            <input class="form-check-input" type="checkbox"'.(($ticket["progress"]=="1")? 'checked="1"':'').'/>
+                         </div>                         
+                     </li>';
+            }
+            echo '</ul>';
          ?>
         <nav class="page-navigation">
             <ul class="pagination">
