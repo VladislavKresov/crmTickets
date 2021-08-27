@@ -13,15 +13,6 @@ function AddTicket($ticket)
     header('Location: /');
 }
 
-function SwitchTicketStatus($cb, $id)
-{
-    var_dump($cb);
-    if($cb.is(":checked"))
-    {
-        var_dump($id);
-    }
-}
-
 if(array_key_exists('addticket',$_POST))
 {
     AddTicket($_POST);

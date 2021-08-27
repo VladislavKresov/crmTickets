@@ -1,5 +1,5 @@
 <?php
-require_once "includes/connection.php";
+require_once dirname(__DIR__) . '\includes/connection.php';
 
 class DBRequests
 {
@@ -28,12 +28,12 @@ class DBRequests
     {
         $statement = Get_PDO()->prepare("SELECT * FROM tasks WHERE id = ".$id);
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement->fetchAll(PDO::FETCH_ASSOC)[0];
     }
 
     public static function ReplaceTicket($ticket)
     {
-        $sql = 'UPDATE tasks SET username = "'.$ticket['username'].'", email = "'.$ticket['email'].'", content = "'.$ticket['content'].'", progress = "'.$ticket['progress'].'" WHERE id = '.$ticket['id'];
+        $sql = 'UPDATE tasks SET username = "'.$ticket['username'].'", email = "'.$ticket['email'].'", content = "'.$ticket['content'].'", progress = "'.$ticket['progress'].'" WHERE id = "'.$ticket['id'].'"';
         $statement = Get_PDO()->prepare($sql);
         $statement->execute();
     }
