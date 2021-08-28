@@ -9,7 +9,7 @@ class DBRequests
     public static function InsertTicket($ticket)
     {
         //$pdo = new PDO(self::$pdo_dsn, self::$pdo_login, self::$pdo_password);
-        $statement = Connection::Get_PDO()->prepare(self::$sql_insert);
+        $statement = Get_PDO()->prepare(self::$sql_insert);
         $statement->bindParam(":username", $ticket['username']);
         $statement->bindParam(":email", $ticket['email']);
         $statement->bindParam(":content", $ticket['content']);

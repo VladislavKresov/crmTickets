@@ -17,10 +17,8 @@
     <div class="header-box">
         <nav class="navbar navbar-light">
             <div class="container-fluid justify-content-end">
-
                 <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">New Task</button>
                 <?php
-                session_start();
                 if(!isset($_SESSION["session_username"]))
                     echo '<button class="btn btn-light me-2" type="button" onclick="document.location = \'view/login.php\'">Sign In</button>';
                 else
