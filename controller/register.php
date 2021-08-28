@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__DIR__) . "/includes/connection.php";
+require_once dirname(__DIR__) . "/model/User.php";
 
 if (isset($_POST["register"]))
 {
@@ -9,19 +9,10 @@ if (isset($_POST["register"]))
         $email = htmlspecialchars($_POST['email']);
         $username = htmlspecialchars($_POST['username']);
         $password = htmlspecialchars($_POST['password']);
-        $pdo = Get_PDO();
-        $statement = $pdo->prepare("SELECT * FROM usertbl WHERE username='" . $username . "'");
-        $statement->execute();
-        $numrows = $statement->rowCount();
-        if ($numrows == 0)
-        {
-            $sql = "INSERT INTO usertbl
-                    (email, username,password)            
-	                VALUES('$email', '$username', '$password')";
 
-            $statement = $pdo->prepare($sql);
-            $result = $statement->execute();
-            if ($result)
+        if (User::isUsernameAvailable($username))
+        {
+            if (User::createNewUser($email, $username, $password))
             {
                 $message = "Account Successfully Created";
                 header("/view/login.php");

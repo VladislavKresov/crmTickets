@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once(dirname(__DIR__)."/includes/connection.php");
+require_once(dirname(__DIR__)."/model/User.php");
+
 if(isset($_SESSION["session_username"]))
 {
     // вывод "Session is set"; // в целях проверки
@@ -13,11 +14,7 @@ if(isset($_POST["login"]))
     {
         $username=htmlspecialchars($_POST['username']);
         $password=htmlspecialchars($_POST['password']);
-        $pdo = Get_PDO();
-        $statement = $pdo->prepare("SELECT * FROM usertbl WHERE username='".$username."' AND password='".$password."'");
-        $statement->execute();
-        $numrows = $statement->rowCount();
-        if($numrows!=0)
+        if(User::checkUsernameAndPassword($username, $password))
         {
             session_start();
             $_SESSION['session_username']=$username;

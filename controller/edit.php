@@ -1,10 +1,10 @@
 <?php
-include_once dirname(__DIR__) . '/model/database_request.php';
+include_once dirname(__DIR__) . '/model/Tickets.php';
 $ticket = $_POST['ticket'];
 if(isset($ticket))
 {
     var_dump($ticket);
-    DBRequests::ReplaceTicket($ticket);
+    Tickets::ReplaceTicket($ticket);
 }
 header('Location: /');
 ?>

@@ -1,9 +1,14 @@
 <?php
-if (!isset($_GET['id'])) {
+session_start();
+
+include dirname(__DIR__) . '\model\User.php';
+
+if (!isset($_GET['id']) || (isset($_SESSION['session_username']) && !User::isAdmin($_SESSION['session_username']))) {
     header('Location: /');
 }
-include_once dirname(__DIR__) . '/model/database_request.php';
-$ticket = DBRequests::SelectTicketByID($_GET['id']);
+
+include_once dirname(__DIR__) . '/model/Tickets.php';
+$ticket = Tickets::SelectTicketByID($_GET['id']);
 ?>
 
 <form action="/controller/edit.php" method="post">
@@ -14,7 +19,7 @@ $ticket = DBRequests::SelectTicketByID($_GET['id']);
     </div>
     <div>
         <label>Email</label>
-        <input type="text" class="form-control" name="ticket[email]" type="email" value="<?= $ticket['email']; ?>">
+        <input class="form-control" name="ticket[email]" type="email" value="<?= $ticket['email']; ?>">
     </div>
     <div>
         <label>Task</label>
